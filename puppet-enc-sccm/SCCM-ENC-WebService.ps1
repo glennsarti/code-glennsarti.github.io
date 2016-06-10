@@ -184,7 +184,7 @@ function Get-NodeResponse($NodeName) {
       return ""
     }
     
-    # Get the Modules List
+    # Get the Classes List
     $ClassNames = $nodeClasses.GetEnumerator() | % {
       Write-Output $_.Value.Substring($ClassCollectionPrefix.Length)
     } | Select-Object -Unique
