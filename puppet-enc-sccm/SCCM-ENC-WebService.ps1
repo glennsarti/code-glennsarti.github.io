@@ -12,9 +12,6 @@ param(
   $DatabaseServer
 
   ,[Parameter(Mandatory=$true,ValueFromPipeline=$false)]
-  $DatabaseName
-
-  ,[Parameter(Mandatory=$true,ValueFromPipeline=$false)]
   $DatabaseUsername
 
   ,[Parameter(Mandatory=$true,ValueFromPipeline=$false)]
@@ -24,6 +21,7 @@ param(
 $ErrorActionPreference = 'Stop'
 $VerbosePreference = 'Continue'
 
+$DatabaseName = "CM_$($ConfigMgrSite)"
 # SCCM Collection Settings
 $EnvironmentCollectionPrefix = 'Puppet::Environment::'
 $RoleCollectionPrefix = 'Puppet::Role::'
