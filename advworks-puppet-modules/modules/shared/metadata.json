@@ -1,0 +1,15 @@
+{
+  "name": "glennsarti-shared",
+  "version": "0.0.1",
+  "author": "glennsarti",
+  "summary": "Test module for shared templates in Adventure Works",
+  "license": "Apache-2.0",
+  "source": "https://github.com/glennsarti/code-glennsarti.github.io",
+  "project_page": "https://github.com/glennsarti/code-glennsarti.github.io",
+  "issues_url": "https://github.com/glennsarti/code-glennsarti.github.io/issues",
+  "dependencies": [
+    {"name":"puppetlabs-stdlib","version_requirement":">= 1.0.0"}
+  ],
+  "data_provider": null
+}
+
