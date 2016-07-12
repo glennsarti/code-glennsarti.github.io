@@ -130,6 +130,7 @@ function Get-StaticNodeResponse($nodeName) {
 ---
 classes:
     pe_console_prune:
+      prune_upto: 30
     pe_repo:
     pe_repo::platform::el_7_x86_64:
     puppet_enterprise:
