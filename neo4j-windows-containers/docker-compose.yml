@@ -1,0 +1,52 @@
+version: '2.1'
+
+services:
+
+  # Initial cluster member
+  neo4j_1:
+    build: ./context
+    image: neo4j_enterprise:3.0.6
+    entrypoint: "powershell C:/neo4j/docker-entrypoint.ps1"
+    environment:
+      NEO4J_dbms_mode: "HA"
+      NEO4J_ha_serverId: "1"
+      NEO4J_ha_initialHosts: "192.168.200.201:5001"
+    networks:
+      neo4jcluster:
+        ipv4_address: "192.168.200.201"
+
+  # Additional cluster member
+  neo4j_2:
+    depends_on:
+      - neo4j_1
+    image: neo4j_enterprise:3.0.6
+    entrypoint: "powershell C:/neo4j/docker-entrypoint.ps1"
+    environment:
+      NEO4J_startup_delay: "15"
+      NEO4J_dbms_mode: "HA"
+      NEO4J_ha_serverId: "2"
+      NEO4J_ha_initialHosts: "192.168.200.201:5001"
+    networks:
+      neo4jcluster:
+        ipv4_address: "192.168.200.202"
+ 
+  # Arbiter instance only
+  neo4j_3:
+    depends_on:
+      - neo4j_1
+    image: neo4j_enterprise:3.0.6
+    entrypoint: "powershell C:/neo4j/docker-entrypoint.ps1"
+    environment:
+      NEO4J_startup_delay: "15"
+      NEO4J_dbms_mode: "ARBITER"
+      NEO4J_ha_serverId: "3"
+      NEO4J_ha_initialHosts: "192.168.200.201:5001"
+    networks:
+      neo4jcluster:
+        ipv4_address: "192.168.200.203"
+
+# Externally defined transparent network
+networks:
+  neo4jcluster:
+    external:
+      name: TransparentNetwork
