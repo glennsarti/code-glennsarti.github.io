@@ -97,20 +97,3 @@ if (-not (Test-Path -Path "$($contextDir)\neo4j")) {
   # Copy DockerFile
   Copy-Item -Path "$($PSScriptRoot)\DockerFile" -Destination "$($contextDir)\DockerFile" -Force -Confirm:$false
 }
-
-## Generate Docker Context files
-#$dockerWorkDir = "$($PSScriptRoot)\working"
-#If (Test-Path -Path $dockerWorkDir) { Remove-Item -path $dockerWorkDir -Recurse -Force -Confirm:$false | Out-Null }
-#New-Item -Path $dockerWorkDir -ItemType Directory | Out-Null
-
-# Copy DockerFile
-# Copy-Item -Path "$($PSScriptRoot)\DockerFile" -Destination "$($dockerWorkDir)\DockerFile" -Force -Confirm:$false
-# # Copy extra source files
-# Copy-Item -Path "$($PSScriptRoot)\docker-entrypoint.ps1" -Destination "$($dockerWorkDir)\neo4j" -Force -Confirm:$false
-
-# Push-Location $dockerWorkDir
-
-# # # Docker build does not bind to networks :-(
-# #docker build "$dockerWorkDir"
-
-# Pop-Location
