@@ -6,7 +6,6 @@ services:
   neo4j_1:
     build: ./context
     image: neo4j_enterprise:3.0.6
-    entrypoint: "powershell C:/neo4j/docker-entrypoint.ps1"
     environment:
       NEO4J_dbms_mode: "HA"
       NEO4J_ha_serverId: "1"
@@ -20,7 +19,6 @@ services:
     depends_on:
       - neo4j_1
     image: neo4j_enterprise:3.0.6
-    entrypoint: "powershell C:/neo4j/docker-entrypoint.ps1"
     environment:
       NEO4J_startup_delay: "15"
       NEO4J_dbms_mode: "HA"
@@ -35,7 +33,6 @@ services:
     depends_on:
       - neo4j_1
     image: neo4j_enterprise:3.0.6
-    entrypoint: "powershell C:/neo4j/docker-entrypoint.ps1"
     environment:
       NEO4J_startup_delay: "15"
       NEO4J_dbms_mode: "ARBITER"
