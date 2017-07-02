@@ -1,0 +1,13 @@
+{
+  "name": "glennsarti-customfacts",
+  "version": "0.0.1",
+  "author": "glennsarti",
+  "summary": "Test module for facts",
+  "license": "Apache-2.0",
+  "source": "https://github.com/glennsarti/code-glennsarti.github.io",
+  "project_page": "https://github.com/glennsarti/code-glennsarti.github.io",
+  "issues_url": "https://github.com/glennsarti/code-glennsarti.github.io/issues",
+  "dependencies": [],
+  "data_provider": null
+}
+
